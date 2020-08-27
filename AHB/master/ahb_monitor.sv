@@ -1,5 +1,5 @@
-`ifndef NX__SV__AHB_MONITOR
-`define NX__SV__AHB_MONITOR
+`ifndef SV_DEF__SV__AHB_MONITOR
+`define SV_DEF__SV__AHB_MONITOR
 class ahb_monitor extends uvm_monitor;
 	typedef enum{READ = 0, WRITE = 1} __trans_type;
 	virtual AHB_IF vif;
@@ -56,4 +56,4 @@ class ahb_monitor extends uvm_monitor;
 	endtask
 
 endclass: ahb_monitor
-`endif // NX__SV__AHB_MONITOR
+`endif // SV_DEF__SV__AHB_MONITOR

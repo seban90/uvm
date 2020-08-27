@@ -1,5 +1,5 @@
-`ifndef NX__SV__AHB_SEQUENCE_ITEM
-`define NX__SV__AHB_SEQUENCE_ITEM
+`ifndef SV_DEF__SV__AHB_SEQUENCE_ITEM
+`define SV_DEF__SV__AHB_SEQUENCE_ITEM
 class ahb_sequence_item extends uvm_sequence_item;
 	typedef enum {READ, WRITE} _type;
 	typedef enum {
@@ -64,4 +64,4 @@ class ahb_sequence_item extends uvm_sequence_item;
 	endfunction
 
 endclass: ahb_sequence_item
-`endif // NX__SV__AHB_SEQUENCE_ITEM
+`endif // SV_DEF__SV__AHB_SEQUENCE_ITEM

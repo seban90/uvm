@@ -1,5 +1,5 @@
-`ifndef NX__SV__AHB_DRIVER
-`define NX__SV__AHB_DRIVER
+`ifndef SV_DEF__SV__AHB_DRIVER
+`define SV_DEF__SV__AHB_DRIVER
 class ahb_driver extends uvm_driver #(ahb_sequence_item);
 
 	virtual AHB_IF  vif;
@@ -36,23 +36,23 @@ class ahb_driver extends uvm_driver #(ahb_sequence_item);
 		// Address Phase
 		#`DELAY_ONE_STEP;
 		this.vif.HADDR  = it.addr;
-		this.vif.HTRANS = `NX__AHB__HTRANS_NONSEQ;
+		this.vif.HTRANS = `SV_DEF__AHB__HTRANS_NONSEQ;
 		this.vif.HLOCK  = 1'b0;
 		this.vif.HPROT  = 4'b0;
 		this.vif.HWRITE = 1'b1;
 		this.vif.HSIZE  = it.SIZE;
-		this.vif.HBURST = `NX__AHB__HBURST_SINGLE;
+		this.vif.HBURST = `SV_DEF__AHB__HBURST_SINGLE;
 		@ (posedge this.vif.HCLK);
 		while (this.vif.HREADY == 0) @ (posedge this.vif.HCLK);
 		#`DELAY_ONE_STEP;
 		// Data Phase
-		this.vif.HTRANS = `NX__AHB__HTRANS_IDLE;
+		this.vif.HTRANS = `SV_DEF__AHB__HTRANS_IDLE;
 		//this.vif.HWRITE = 1'b0;
 		this.vif.HWDATA = it.data;
 		@ (posedge this.vif.HCLK);
 		while (this.vif.HREADY == 0) @ (posedge this.vif.HCLK);
 		#`DELAY_ONE_STEP;
-		//this.vif.HTRANS = `NX__AHB__HTRANS_IDLE;
+		//this.vif.HTRANS = `SV_DEF__AHB__HTRANS_IDLE;
 		this.vif.HWRITE = 1'b0;
 		this.vif.HLOCK  = 1'b0;
 		this.vif.HPROT  = 4'b0;
@@ -106,24 +106,24 @@ class ahb_driver extends uvm_driver #(ahb_sequence_item);
 		// Address Phase
 		#`DELAY_ONE_STEP;
 		this.vif.HADDR  = it.addr;
-		this.vif.HTRANS = `NX__AHB__HTRANS_NONSEQ;
+		this.vif.HTRANS = `SV_DEF__AHB__HTRANS_NONSEQ;
 		this.vif.HLOCK  = 1'b0;
 		this.vif.HPROT  = 4'b0;
 		this.vif.HWRITE = 1'b0;
 		//this.vif.HSIZE  = 3'b010;
 		this.vif.HSIZE  = it.SIZE;
-		this.vif.HBURST = `NX__AHB__HBURST_SINGLE;
+		this.vif.HBURST = `SV_DEF__AHB__HBURST_SINGLE;
 		@ (posedge this.vif.HCLK);
 		while (this.vif.HREADY == 0) @ (posedge this.vif.HCLK);
 		#`DELAY_ONE_STEP;
 		// Data Phase
-		this.vif.HTRANS = `NX__AHB__HTRANS_IDLE;
+		this.vif.HTRANS = `SV_DEF__AHB__HTRANS_IDLE;
 		// this.vif.HWDATA = it.data;
 		@ (posedge this.vif.HCLK);
 		while (this.vif.HREADY == 0) @ (posedge this.vif.HCLK);
 		it.data = this.vif.HRDATA;
 		#`DELAY_ONE_STEP;
-		//this.vif.HTRANS = `NX__AHB__HTRANS_IDLE;
+		//this.vif.HTRANS = `SV_DEF__AHB__HTRANS_IDLE;
 		this.vif.HLOCK  = 1'b0;
 		this.vif.HPROT  = 4'b0;
 		this.vif.HWRITE = 1'b0;
@@ -190,4 +190,4 @@ class ahb_driver extends uvm_driver #(ahb_sequence_item);
 	endtask
 
 endclass: ahb_driver
-`endif // NX__SV__AHB_DRIVER
+`endif // SV_DEF__SV__AHB_DRIVER

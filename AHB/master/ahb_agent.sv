@@ -1,5 +1,5 @@
-`ifndef NX__SV__AHB_AGENT
-`define NX__SV__AHB_AGENT
+`ifndef SV_DEF__SV__AHB_AGENT
+`define SV_DEF__SV__AHB_AGENT
 class ahb_agent extends uvm_agent;
 
 	ahb_driver     drv    ;
@@ -39,4 +39,4 @@ class ahb_agent extends uvm_agent;
 
 
 endclass: ahb_agent
-`endif // NX__SV__AHB_AGENT
+`endif // SV_DEF__SV__AHB_AGENT

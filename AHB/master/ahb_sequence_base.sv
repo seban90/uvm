@@ -1,5 +1,5 @@
-`ifndef NX__SV__AHB_SEQUENCE_BASE
-`define NX__SV__AHB_SEQUENCE_BASE
+`ifndef SV_DEF__SV__AHB_SEQUENCE_BASE
+`define SV_DEF__SV__AHB_SEQUENCE_BASE
 class ahb_sequence_base extends uvm_sequence#(ahb_sequence_item);
 
 	ahb_sequence_item item;
@@ -13,4 +13,4 @@ class ahb_sequence_base extends uvm_sequence#(ahb_sequence_item);
 	endtask
 
 endclass: ahb_sequence_base
-`endif // NX__SV__AHB_SEQUENCE_BASE
+`endif // SV_DEF__SV__AHB_SEQUENCE_BASE
